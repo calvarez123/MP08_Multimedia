@@ -40,7 +40,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         imageView = findViewById(R.id.imageView);
-
+        cameraLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode()== RESULT_OK) {
+                            Intent data = result.getData();
+                            Bundle extras = data.getExtras();
+                            Bitmap imageBitmap = (Bitmap) extras.get("data");
+                            imageView.setImageBitmap(imageBitmap);
+                        }
+                    }
+                });
 
 
         imagePickerLauncher = registerForActivityResult(
@@ -70,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
         btnTakePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent foton = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                cameraLauncher.launch(foton);
             }
         });
     }
