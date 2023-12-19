@@ -5,29 +5,56 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <Button
-        android:id="@+id/btnOpenGallery"
+        android:id="@+id/abrirGaleria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Abrir Galería"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="14dp"
+        android:layout_toEndOf="@+id/selectFoto"
+        android:text="Abrir Galería" />
 
     <Button
         android:id="@+id/btnTakePhoto"
+        android:layout_width="135dp"
+        android:layout_height="58dp"
+        android:layout_below="@+id/selectFoto"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="23dp"
+        android:text="Tomar Foto" />
+
+    <Button
+        android:id="@+id/selectFoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tomar Foto"
-        android:layout_below="@id/btnOpenGallery"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="19dp"
+        android:text="SELECT FOTO" />
+
+    <Button
+        android:id="@+id/btnTakePhotofullsize"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnTakePhoto"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="-54dp"
+        android:layout_marginEnd="218dp"
+        android:text="Buena Calidad" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnTakePhoto"
-        android:layout_marginTop="16dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop" />
+        android:layout_marginTop="149dp" />
+
 </RelativeLayout>

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.galeria">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:requestLegacyExternalStorage="true"
@@ -23,14 +26,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RecicledView" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.galeria.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- Asegúrate de que este recurso XML existe y contiene la configuración adecuada -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
     </application>
 
     <!-- Mover uses-feature y uses-permission dentro del manifest -->
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true" />
 
-    <!-- Añadir uses-permission dentro del manifest -->
-    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>
